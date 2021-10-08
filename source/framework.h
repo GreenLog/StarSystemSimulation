@@ -6,10 +6,7 @@
 #ifndef _FRAMEWORK_H
 #define _FRAMEWORK_H
 
-typedef struct Framework
-{
-
-} Framework; 
+typedef Framework;
 
 
 /*********************************************
@@ -19,6 +16,7 @@ typedef struct Framework
 *********************************************/
 void FrameworkInitialize();
 
+void FrameworkTick();
 
 void FrameworkTerminate();
 #endif

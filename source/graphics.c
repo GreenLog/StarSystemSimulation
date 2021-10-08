@@ -5,15 +5,16 @@
  *        calls
 *****************************************************************************/
 
-#define _WCHAR_T_DEFINED
-#define _SIZE_T_DEFINED
+
 
 #include "stdio.h"
+#include "CommonIncludes.h"
 
 #define GLFW_DLL
 #include "GLFW/glfw3.h"
 #include "graphics.h"
 
+GLFWwindow* window = NULL;
 void error_callback(int error, const char* description)
 {
   printf("Error: %s\n", description);
@@ -46,7 +47,7 @@ void GraphicsInitialize()
   {
     printf("Monitor fetched!\n");
   }
-  GLFWwindow* window = glfwCreateWindow(640, 480, "Yes", NULL, NULL);
+  window = glfwCreateWindow(640, 480, "Yes", NULL, NULL);
   
   
   
@@ -60,11 +61,17 @@ void GraphicsInitialize()
 
   }
 
-  while (1)
-  {
-
-  }
   return;
+}
+
+void GraphicsTick()
+{
+  glfwSwapBuffers(window);
+}
+
+GLFWwindow* GraphicsGetGLFWwindow()
+{
+  return window;
 }
 
 void GraphicsTerminate()
