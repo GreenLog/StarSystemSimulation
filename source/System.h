@@ -9,6 +9,7 @@
 #define SystemInitialize(System) System##Initialize()
 #define SystemTick(System) System##Tick()
 #define SystemTerminate(System) System##Terminate()
+#define SystemGet(System, SystemVariable) System##Get##SystemVariable()
 
 /*********************************************
 * Name: Stub

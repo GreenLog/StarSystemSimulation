@@ -7,10 +7,9 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-typedef struct Graphics
-{
+#include "GLFW/glfw3.h"
 
-}Graphics;
+typedef Graphics;
 
 /*********************************************
 * Name: Stub
@@ -18,6 +17,9 @@ typedef struct Graphics
 *   - Stubs
 *********************************************/
 void GraphicsInitialize();
+
+void GraphicsTick();
+GLFWwindow* GraphicsGetGLFWwindow();
 
 void GraphicsTerminate();
 #endif

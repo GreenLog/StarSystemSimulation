@@ -5,6 +5,8 @@
 *****************************************************************************/
 
 #include "stdio.h"
+#include "CommonIncludes.h"
+
 #include "framework.h"
 
 /*********************************************
@@ -16,6 +18,11 @@ void FrameworkInitialize()
 {
   printf("Framework Initialized!\n");
   return;
+}
+
+void FrameworkTick()
+{
+  
 }
 
 void FrameworkTerminate()
