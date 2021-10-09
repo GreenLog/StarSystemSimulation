@@ -3,30 +3,21 @@
  *  Description:
  *      -
 *****************************************************************************/
-#include <stdbool.h>
-#ifndef _INPUT_H
-#define _INPUT_H
+#ifndef _STUB_H
+#define _STUB_H
 #include "System.h"
-typedef struct Input
-{
-  System base;
-  bool (*KeyPressed)(int);
-  bool (*KeyHeld)(int);
-  bool (*KeyReleased)(int);
+#include "CommonIncludes.h"
 
+#define GET_SYSTEM(system) ((system*)_GetSystem(c##system))
 
-}Input;
 /*********************************************
 * Name: Stub
 * Description:
 *   - Stubs
 *********************************************/
-void InputInitialize();
+void SystemManagerInitialize();
+void SystemManagerTick();
+void SystemManagerTerminate();
 
-void InputTick();
-
-void InputTerminate();
-
-
-
+System* _GetSystem(SystemType system);
 #endif

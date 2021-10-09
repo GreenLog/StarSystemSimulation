@@ -4,14 +4,16 @@
  *      - Contains the main() function
 *****************************************************************************/
 
+#define GLFW_INCLUDE_NONE
 #include "stdio.h"
 #include "CommonIncludes.h"
 
-#include "System.h"
 
 #include "framework.h"
 #include "graphics.h"
 #include "Input.h"
+#include "GLFW/glfw3.h"
+#include "SystemManager.h"
 /*********************************************
 * Name: main
 * Description:
@@ -20,37 +22,18 @@
 int main()
 {
   
-  SystemInitialize(Framework);
-  SystemInitialize(Graphics);
-  SystemInitialize(Input);
-
+  SystemManagerInitialize();
   while (true)
   {
-    EarlyTickInput();
-
-
-    SystemTick(Framework);
-    SystemTick(Input);
-
-    if (KeyPressed(GLFW_KEY_SPACE))
+    SystemManagerTick();
+    if (GET_SYSTEM(Input)->KeyPressed(GLFW_KEY_ESCAPE))
     {
-      printf("SpacePressed!");
-    }
-
-    if (KeyPressed(GLFW_KEY_ESCAPE))
-    {
+      printf("Escape pressed\n");
       break;
     }
-
-    SystemTick(Graphics);
-
-
-    LateTickInput();
+    printf("frame\n");
   }
-
-  SystemTerminate(Framework);
-  SystemTerminate(Graphics);
-  SystemTerminate(Input);
+  SystemManagerTerminate();
   
   return 0;
 }
