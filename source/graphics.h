@@ -7,9 +7,16 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-#include "GLFW/glfw3.h"
 
-typedef Graphics;
+#include "System.h"
+
+typedef struct GLFWwindow GLFWwindow;
+
+typedef struct Graphics
+{
+  System base;
+  GLFWwindow* window;
+}Graphics;
 
 /*********************************************
 * Name: Stub

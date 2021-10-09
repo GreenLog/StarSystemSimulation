@@ -7,12 +7,15 @@
 
 
 
-#include "stdio.h"
 #include "CommonIncludes.h"
 
 #define GLFW_DLL
+#define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
+#include <gl/gl.h>
+#include <stdio.h>
 #include "graphics.h"
+#include "SystemManager.h"
 
 GLFWwindow* window = NULL;
 void error_callback(int error, const char* description)
@@ -48,7 +51,7 @@ void GraphicsInitialize()
     printf("Monitor fetched!\n");
   }
   window = glfwCreateWindow(640, 480, "Yes", NULL, NULL);
-  
+  GET_SYSTEM(Graphics)->window = window;
   
   
   if (!window)
@@ -66,6 +69,7 @@ void GraphicsInitialize()
 
 void GraphicsTick()
 {
+  
   glfwSwapBuffers(window);
 }
 

@@ -6,7 +6,11 @@
 #ifndef _FRAMEWORK_H
 #define _FRAMEWORK_H
 
-typedef Framework;
+#include "System.h"
+typedef struct Framework
+{
+  System base;
+}Framework;
 
 
 /*********************************************
